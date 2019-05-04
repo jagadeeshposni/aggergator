@@ -1,9 +1,11 @@
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
-    username: admin
-    password:
-  h2:
-    console:
-      enabled: true
+  marvel_db:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/marvel
+    username: sai
+    password: sai
+  dc_db:
+    driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3307/dc
+      username: sai
+      password: sai
