@@ -1,39 +1,45 @@
 package com.company.controller;
 
-import com.company.service.H2Service;
-import com.company.service.MySqlService;
+import com.company.service.DCService;
+import com.company.service.MarvelService;
 import com.company.service.RestAPIService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class AggregatorRestController {
 
-    private H2Service h2Service;
-    private MySqlService mySqlService;
+    private MarvelService marvelService;
+    private DCService dcService;
     private RestAPIService restAPIService;
 
     @Autowired
-    public AggregatorRestController(H2Service h2Service, MySqlService mySqlService, RestAPIService restAPIService) {
-        this.h2Service = h2Service;
-        this.mySqlService = mySqlService;
+    public AggregatorRestController(MarvelService marvelService, DCService dcService, RestAPIService restAPIService) {
+        this.marvelService = marvelService;
+        this.dcService = dcService;
         this.restAPIService = restAPIService;
     }
 
-    @GetMapping("/")
-    public String sayHello() {
-        return "yo";
+    @Autowired
+    @Qualifier("dcdbJdbcTemplate")
+    private JdbcTemplate dcTemplate;
+
+
+    @GetMapping("/marvel-movies")
+    public String getMarvelMovies() {
+           return marvelService.getMarvelMovieData();
     }
 
-    @GetMapping("/h2")
-    public String getDataFromH2() {
-        return h2Service.getData();
-    }
-
-    @GetMapping("/mysql")
-    public String getDataFromMySql() {
-        return mySqlService.getData();
+    @GetMapping("/dc-movies")
+    public String getDcMovies() {
+        return null;
     }
 
     @GetMapping("/restapi")

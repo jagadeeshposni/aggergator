@@ -1,11 +1,11 @@
 spring:
-  marvel_db:
+  marvel-db:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/marvel
+    jdbc-url: jdbc:mysql://localhost:3306/marvel?useSSL=false
     username: sai
     password: sai
-  dc_db:
+  dc-db:
     driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3307/dc
-      username: sai
-      password: sai
+    jdbc-url: jdbc:mysql://localhost:3306/dc?useSSL=false
+    username: sai
+    password: sai

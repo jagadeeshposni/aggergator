@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 public class DBConfig {
 
     @Bean(name = "marveldb")
-    @ConfigurationProperties(prefix = "spring.marvel_db")
+    @ConfigurationProperties(prefix = "spring.marvel-db")
     public DataSource marvelDataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -24,12 +24,12 @@ public class DBConfig {
     }
 
     @Bean(name = "dcdb")
-    @ConfigurationProperties(prefix = "spring.dc_db")
+    @ConfigurationProperties(prefix = "spring.dc-db")
     public DataSource dcDataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "dcJdbcTemplate")
+    @Bean(name = "dcdbJdbcTemplate")
     public JdbcTemplate dcJdbcTemplate(@Qualifier("dcdb") DataSource dcDataSource) {
         return new JdbcTemplate(dcDataSource);
     }
