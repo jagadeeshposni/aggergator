@@ -2,6 +2,7 @@ package com.company.service.impl;
 
 import com.company.service.MarvelService;
 import com.company.service.data.MarvelDataService;
+import com.company.util.JSONUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,7 @@ public class MarvelServiceImpl implements MarvelService {
     @Override
     public String getMarvelMovieData() {
         List<Map<String, Object>> rows = marvelDataService.getMarvelMovieData();
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gsonObject = gsonBuilder.create();
-        return gsonObject.toJson(rows);
+        return JSONUtils.convertToJson(rows);
 
     }
 }

@@ -39,7 +39,7 @@ public class AggregatorRestController {
 
     @GetMapping("/dc-movies")
     public String getDcMovies() {
-        return null;
+        return dcService.getDCMovieData();
     }
 
     @GetMapping("/restapi")
