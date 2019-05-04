@@ -1,13 +1,14 @@
 package com.company.service.impl;
 
 import com.company.service.RestAPIService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RestAPIServiceImpl implements RestAPIService {
 
+
+    private String restUrl;
 
     @Override
     public String getJsonData() {
