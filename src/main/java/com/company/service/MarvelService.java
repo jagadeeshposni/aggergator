@@ -2,5 +2,5 @@ package com.company.service;
 
 
 public interface MarvelService {
-    public String getMarvelMovieData();
+    public String getMarvelData(String tableName);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,14 +29,14 @@ public class AggregatorRestController {
     private JdbcTemplate dcTemplate;
 
 
-    @GetMapping("/marvel-movies")
-    public String getMarvelMovies() {
-           return marvelService.getMarvelMovieData();
+    @GetMapping("/marvel/{tableName}")
+    public String getMarvelMovies(@PathVariable(value = "") String tableName) {
+           return marvelService.getMarvelData(tableName);
     }
 
-    @GetMapping("/dc-movies")
-    public String getDcMovies() {
-        return dcService.getDCMovieData();
+    @GetMapping("/dc/{tableName}")
+    public String getDcMovies(@PathVariable(value = "") String tableName) {
+        return dcService.getDCMovieData(tableName);
     }
 
     @GetMapping("/restapi")

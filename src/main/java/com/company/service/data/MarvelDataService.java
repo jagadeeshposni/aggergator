@@ -16,9 +16,10 @@ public class MarvelDataService {
     @Qualifier("marveldbJdbcTemplate")
     private JdbcTemplate marvelTemplate;
 
-    public List<Map<String, Object>> getMarvelMovieData() {
+    public List<Map<String, Object>> getMarvelMovieData(String tableName) {
         List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
-        String query = " select * from movies";
+        String query = "select * from <tableName>";
+        query = query.replace("<tableName>", tableName);
         try {
             rows = marvelTemplate.queryForList(query);
         } catch (Exception e) {

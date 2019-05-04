@@ -1,5 +1,5 @@
 package com.company.service;
 
 public interface DCService {
-    public String getDCMovieData();
+    public String getDCMovieData(String tableName);
 }

@@ -17,9 +17,9 @@ public class DCServiceImpl implements DCService {
 
 
     @Override
-    public String getDCMovieData() {
+    public String getDCMovieData(String tableName) {
 
-        List<Map<String, Object>> rows = dcDataService.getDCMovieData();
+        List<Map<String, Object>> rows = dcDataService.getDCMovieData(tableName);
         return JSONUtils.convertToJson(rows);
     }
 }

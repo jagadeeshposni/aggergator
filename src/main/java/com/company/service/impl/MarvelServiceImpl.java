@@ -20,8 +20,8 @@ public class MarvelServiceImpl implements MarvelService {
 
 
     @Override
-    public String getMarvelMovieData() {
-        List<Map<String, Object>> rows = marvelDataService.getMarvelMovieData();
+    public String getMarvelData(String tableName) {
+        List<Map<String, Object>> rows = marvelDataService.getMarvelMovieData(tableName);
         return JSONUtils.convertToJson(rows);
 
     }

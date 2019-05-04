@@ -16,10 +16,11 @@ public class DCDataService {
     @Qualifier("dcdbJdbcTemplate")
     private JdbcTemplate dcTemplate;
 
-    public List<Map<String, Object>> getDCMovieData() {
+    public List<Map<String, Object>> getDCMovieData(String tableName) {
 
         List<Map<String, Object>> rows = new ArrayList<Map<String, Object>>();
-        String query = " select * from movies";
+        String query = " select * from <tableName>";
+        query = query.replace("<tableName>", tableName);
         try {
             rows = dcTemplate.queryForList(query);
         } catch (Exception e) {
