@@ -44,6 +44,6 @@ public class AggregatorRestController {
 
     @GetMapping("/restapi")
     public String getDatafromRestApi() {
-        return restAPIService.getData();
+        return restAPIService.getJsonData();
     }
 }
