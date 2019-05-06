@@ -9,6 +9,5 @@ public class AggregatorWebService
 {
     public static void main( String[] args )    {
         SpringApplication.run(AggregatorWebService.class);
-        System.out.println( "Hello World!" );
     }
 }
